@@ -1,15 +1,30 @@
-# Ignore all bazel-* symlinks.
-/bazel-*
-# Ignore Bazel verbose explanations
---verbose_explanations
-# Ignore CMake usual build directory
-build
-# Ignore Vim files
-*.swp
-# Ignore QtCreator Project file
-CMakeLists.txt.user
-# Ignore VS Code files
-.vscode/*
-# Ignore generated python artifacts
-*.pyc
-copts/__pycache__/
+corelib/
+.vs/
+cmake-build-debug/
+absl/
+app/
+lib/
+ALL_BUILD.vcx*
+cmake_install.cmake
+cmake_uninstall.cmake
+CMakeCache.txt
+CPack*.cmake
+INSTALL.*
+PACKAGE.vcxproj*
+RTABMap.sln
+RTABMap*.cmake
+uninstall.vcxpro*
+ZERO_CHECK.vcxpro*
+examples/
+guilib/
+tools/
+utilite/
+CMakeFiles/
+x64/
+compile_flags.txt
+tags
+.ninja_deps
+.ninja_log
+build.ninja
+install_manifest.txt
+install_manifest.txt
