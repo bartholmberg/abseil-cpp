@@ -30,7 +30,7 @@ cmake_policy(SET CMP0057 NEW)
 # Project version variables are the empty std::string if version is unspecified
 cmake_policy(SET CMP0048 NEW)
 
-project(absl CXX)
+project(absl)
 
 # when absl is included as subproject (i.e. using add_subdirectory(abseil-cpp))
 # in the source tree of a project that uses it, install rules are disabled.
@@ -108,11 +108,11 @@ if(BUILD_TESTING)
 endif()
 
 add_subdirectory(absl)
-
+#add_subdirectory(abseil-cpp)
 if(ABSL_ENABLE_INSTALL)
   # absl:lts-remove-begin(system installation is supported for LTS releases)
   # We don't support system-wide installation
-  list(APPEND SYSTEM_INSTALL_DIRS "/usr/local" "/usr" "/opt/" "/opt/local" "c:/Program Files/${PROJECT_NAME}")
+  list(APPEND SYSTEM_INSTALL_DIRS  "C:/opt/rosdeps/stow/absl")
   if(NOT DEFINED CMAKE_INSTALL_PREFIX OR CMAKE_INSTALL_PREFIX IN_LIST SYSTEM_INSTALL_DIRS)
     message(WARNING "\
   The default and system-level install directories are unsupported except in LTS \
@@ -136,7 +136,7 @@ if(ABSL_ENABLE_INSTALL)
   install(FILES "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
     DESTINATION "${ABSL_INSTALL_CONFIGDIR}"
   )
-
+  #target_link_libraries(cartographer PRIVATE absl::flat_has_map)
   # Abseil only has a version in LTS releases.  This mechanism is accomplished
   # Abseil's internal Copybara (https://github.com/google/copybara) workflows and
   # isn't visible in the CMake buildsystem itself.
@@ -157,4 +157,5 @@ if(ABSL_ENABLE_INSTALL)
       PATTERN "*.inc"
       PATTERN "*.h"
   )
+
 endif()  # ABSL_ENABLE_INSTALL
