@@ -28,3 +28,4 @@ tags
 build.ninja
 install_manifest.txt
 install_manifest.txt
+.ninja_log
